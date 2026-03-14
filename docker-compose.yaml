@@ -1,0 +1,12 @@
+services:
+  firestore:
+    build:
+      context: .
+    environment:
+      - CLOUDSDK_CORE_PROJECT=winglobe
+    volumes:
+      - .:/workspace
+    ports:
+      # firebase UI が firestore にクライアントから接続させるので firestore もポートの公開が必要
+      - 8000:8000
+      - 4000:4000
