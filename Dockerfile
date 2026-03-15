@@ -1,11 +1,11 @@
-FROM node:22.14.0-bookworm
+FROM node:24.14.0-trixie-slim
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        openjdk-17-jre-headless \
+        openjdk-21-jre-headless \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
-    && npm install -g firebase-tools@14.2.1 \
+    && npm install -g firebase-tools@15.10.0 \
     && firebase setup:emulators:firestore \
     && firebase setup:emulators:ui \
     && mkdir /data
